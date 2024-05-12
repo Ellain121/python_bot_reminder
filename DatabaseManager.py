@@ -85,6 +85,6 @@ class DatabaseManager():
             print("Error 400")
 
     def getEntries(self) -> List[Any]:
-        query_str = "SELECT * FROM " + TABLE_NAME + ";"
+        query_str = "SELECT * FROM " + TABLE_NAME + " ORDER BY add_date ASC;"
         self.cursor.execute(query_str)
         return self.cursor.fetchall()

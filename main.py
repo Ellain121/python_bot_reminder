@@ -95,9 +95,11 @@ async def get_task_ids(message: Message, db_manager: DatabaseManager, state: FSM
     print(f"ids: {ids}")
     db_ids = []
     tasks: List[Any] = db_manager.getEntries()
+    print(tasks)
     for id in ids:
-        entry = tasks[id-1]
+        entry = tasks[id]
         db_id = entry[0]
+        print(f"{entry[0]}|{entry[1]}|{entry[2]}")
         db_ids.append(str(db_id))
 
     db_manager.delEntries(db_ids)
