@@ -5,7 +5,7 @@ from datetime import datetime
 from sqlite3 import Cursor
 from typing import Any, List
 
-project_path = os.path.realpath(__file__)
+project_path = os.path.dirname(os.path.realpath(__file__))
 
 DATABASE_FILE = project_path + "/data/tasks.db"
 TABLE_NAME = "tasks"
