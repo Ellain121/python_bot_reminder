@@ -1,4 +1,5 @@
 import asyncio
+import os
 from aiogram import F, Dispatcher, Bot, Router, BaseMiddleware
 from aiogram.filters import Command, StateFilter
 from aiogram.types import Message, TelegramObject, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
@@ -38,7 +39,9 @@ class DatabaseMiddleware(BaseMiddleware):
         return await handler(event, data)
 
 
-filename = str("./logs/") + datetime.now().strftime("%d_%b_%Y_%A_logs.txt")
+script_dir = os.path.dirname(os.path.realpath(__file__))
+filename = script_dir + str("/logs/") + \
+    datetime.now().strftime("%d_%b_%Y_%A_logs.txt")
 # logging.basicConfig(filename=filename, filemode='a',
 #                     format='(%(asctime)s, %(name)s, %(levelname)s): %(message)s', level=logging.INFO)
 logging.basicConfig(format='---> (%(asctime)s, %(name)s, %(levelname)s): %(message)s', level=logging.INFO, handlers=[
