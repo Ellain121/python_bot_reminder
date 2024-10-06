@@ -1,10 +1,13 @@
 import sqlite3
 import atexit
+import os
 from datetime import datetime
 from sqlite3 import Cursor
 from typing import Any, List
 
-DATABASE_FILE = "./data/tasks.db"
+project_path = os.path.realpath(__file__)
+
+DATABASE_FILE = project_path + "/data/tasks.db"
 TABLE_NAME = "tasks"
 CREATE_TABLE_QUERY =  \
     "CREATE TABLE IF NOT EXISTS " \
